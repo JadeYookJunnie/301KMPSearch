@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-class KMPSearch {
+class KMPTable {
 
     public static void main(String[] args) {
         // string where searching for
