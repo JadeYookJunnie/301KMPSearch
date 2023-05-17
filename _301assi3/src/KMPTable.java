@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.*;
+import java.io.*;
 
 class KMPTable {
 
@@ -28,7 +30,7 @@ class KMPTable {
         charList.add("*".charAt(0));
 
 
-        String[][] inputTable = new String[charList.size()+1][subString.length()+1];
+        String[][] inputTable = new String[charList.size()][subString.length()];
 
         int charNum = 0;
 
@@ -80,7 +82,7 @@ class KMPTable {
                             }
                         }
                     }
-                    stringNum++;
+
 
                 }
                 inputTable[charNum][stringNum] = Integer.toString(count);
@@ -93,11 +95,13 @@ class KMPTable {
                 //add current pattern to comparestring
 
                 //pattern and comparestring the same at this stage
+                stringNum++;
 
             }
             System.out.println(out);
             charNum++;
         }
+        //System.out.println(Arrays.deepToString(inputTable));
 
         OutputSkip(inputTable);
 
@@ -105,6 +109,26 @@ class KMPTable {
     }
 
     public static void OutputSkip(String[][] skip) {
+        try {
+            StringBuilder builder = new StringBuilder();
+            for(int i = 0; i < skip.length; i++)//for each row
+            {
+                for(int j = 0; j < skip.length; j++)//for each column
+                {
+                    builder.append(skip[i][j]+"");//append to the output string
+                    if(j < skip.length - 1)//if this is not the last row element
+                        builder.append(",");//then add comma (if you don't like commas you can use spaces)
+                }
+                builder.append("\n");//append new line at the end of the row
+            }
+            BufferedWriter writer = new BufferedWriter(new FileWriter("xyxyz.txt"));
+            writer.write(builder.toString());//save the string representation of the board
+            writer.close();
+        }
+        catch(Exception ex) {
+            System.out.println(ex);
+        }
+
 
     }
 
