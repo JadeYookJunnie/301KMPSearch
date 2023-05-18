@@ -4,15 +4,11 @@ import java.util.*;
 import java.io.*;
 
 class KMPTable {
-
-
-
     public static void main(String[] args) {
         // string where searching for
         String subString = args[0];
         // text file
         String InputString = "The cat said dasdjaljsdlj xxy xyz xyz xyxyz zyxyzyxy";
-
 
         List<Character> charList = new ArrayList<>();
         //build list of characters to check for (going down)
@@ -30,7 +26,7 @@ class KMPTable {
         charList.add("*".charAt(0));
 
 
-        String[][] inputTable = new String[charList.size()][subString.length()];
+        String[][] inputTable = new String[charList.size()+1][subString.length()];
 
         int charNum = 0;
 
@@ -96,7 +92,6 @@ class KMPTable {
 
                 //pattern and comparestring the same at this stage
                 stringNum++;
-
             }
             System.out.println(out);
             charNum++;
