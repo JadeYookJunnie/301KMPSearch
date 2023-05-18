@@ -14,6 +14,7 @@ class KMPSearch {
         readTable(tableFile);
         // get text file
         textFile = args[1];
+        SearchText(textFile);
         // System.out.println(textFile);
 
     }
@@ -34,7 +35,19 @@ class KMPSearch {
     }
 
     // SearchedText = the text we are searching for
-    public static void SearchText(String SearchedText) {
-
+    public static void SearchText(String textFile) {
+        // loop through text file
+        try {
+            File text = new File(textFile);
+            Scanner myReader = new Scanner(text);
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                System.out.print(data);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error spawned");
+            e.printStackTrace();
+        }
     }
 }
