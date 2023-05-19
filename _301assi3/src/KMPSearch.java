@@ -54,6 +54,7 @@ class KMPSearch {
     public static void SearchText(String textFile) {
         //start = index position
         int start = 0;
+        //column
         int offset = 0;
         int lineNumber = 0;
         // loop through text file
