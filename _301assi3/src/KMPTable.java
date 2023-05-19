@@ -21,7 +21,7 @@ class KMPTable {
         charList.add("*".charAt(0));
 
 
-        String[][] inputTable = new String[charList.size()+1][subString.length()];
+        String[][] inputTable = new String[charList.size()][subString.length()];
 
         int charNum = 0;
 

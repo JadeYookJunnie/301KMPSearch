@@ -67,6 +67,10 @@ class KMPSearch {
                 x++;
 
             }
+            System.out.println(skipArray[0][0]);
+            System.out.println(skipArray[1][1]);
+            System.out.println(skipArray[2][2]);
+            System.out.println(skipArray[3][3]);
             // read rest of file
             //String[][] skipArray = new String[rows.size()][0];
             //rows.toArray(skipArray);
