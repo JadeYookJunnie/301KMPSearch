@@ -88,21 +88,36 @@ class KMPSearch {
         int start = 0;
         // column
         int offset = 0;
-        int lineNumber = 0;
+        int lineNumber = null;
+        int index = null;
+        int lenghpassedString = passedString.length();
         // loop through text file
         try {
             File text = new File(textFile);
             Scanner myReader = new Scanner(text);
             while (myReader.hasNextLine()) {
                 String textline = myReader.nextLine();
-                if (textline.charAt(offset) == passedString.charAt(offset)) {
-                    // look at table and increment passedString
+                for(int i =0; i<textline.length();i++){
+                    start = charList.indexOf(i);
+                    if (textline.charAt(i) == passedString.charAt(offset)) {
+                        // look at table and increment passedString
+                        int skip = 0;
+                        //move to next character in passedString
+                        offset ++;
 
-                    //if we make it to end off passed string
-                    //output line
-                    //ouput index
-                } else {
-                    // look at table skip desired characters  on line
+
+                        //if we make it to end off passed string
+                        if(i == lenghpassedString){
+                            //output line
+                            //ouput index
+
+                            //reset offset
+                            offset = 0;
+                        }
+
+                    } else{//not equal to string
+                        int skip = skipArray[start][offset];
+                    }
                 }
 
                 System.out.print(textline);
