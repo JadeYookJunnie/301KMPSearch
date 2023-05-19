@@ -11,11 +11,6 @@ class KMPTable {
         String InputString = "The cat said dasdjaljsdlj xxy xyz xyz xyxyz zyxyzyxy";
 
         List<Character> charList = new ArrayList<>();
-        //build list of characters to check for (going down)
-
-        // table array
-
-
 
         for(int i = 0; i< subString.length(); i++) {
             if(!(charList.contains(subString.charAt(i)))) {
@@ -98,12 +93,12 @@ class KMPTable {
         }
         //System.out.println(Arrays.deepToString(inputTable));
 
-        OutputSkip(inputTable);
+        OutputSkip(inputTable, subString);
 
 
     }
 
-    public static void OutputSkip(String[][] skip) {
+    public static void OutputSkip(String[][] skip, String substring) {
         try {
             StringBuilder builder = new StringBuilder();
             for(int i = 0; i < skip.length; i++)//for each row
@@ -117,6 +112,7 @@ class KMPTable {
                 builder.append("\n");//append new line at the end of the row
             }
             BufferedWriter writer = new BufferedWriter(new FileWriter("xyxyz.txt"));
+            writer.write(substring+"\n");
             writer.write(builder.toString());//save the string representation of the board
             writer.close();
         }
